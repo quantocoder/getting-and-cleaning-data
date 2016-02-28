@@ -1,5 +1,5 @@
 
-This code book describes the variables, the data, and transformations that were performed to clean up the data.
+This code book describes the variables, the data, and transformations that were performed to clean up the data. For original data description, please, see 'features_info.txt'. This file is included in this repo as a fererence.
 
 For data flow description, please see 'README.md', details of transformations for each script are as follows:
 
