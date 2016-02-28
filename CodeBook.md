@@ -115,14 +115,15 @@ In a similar manner the 'subject' column is attached to 'some_features' data fra
 
 4) Finally the data is saved to 'data.out/data_tidy.csv'
                                                                                                                      
-> write.csv(some_features,"data.out/data_tidy.csv")
+> write.table(some_features,"data.out/data_tidy.csv",row.name=FALSE)
+
 
 summarize_data.R
 ----------------
 
 The script first reads the tidy data set:
 
-> data = read.csv("data.out/data_tidy.csv")
+> data = read.table("data.out/data_tidy.csv", header=TRUE)
 
 It then uses the dplyr package to create a table, group the data by activity and subject and finally summaraze each group by computing a mean of each variable:
 
@@ -130,6 +131,7 @@ It then uses the dplyr package to create a table, group the data by activity and
 
 Finally the data is saved:
 
-> write.csv(s,"data.out/data_summary.csv")
+> write.table(s,"data.out/data_summary.csv",row.name=FALSE)
+
 
 Thank you!

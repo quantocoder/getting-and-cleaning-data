@@ -29,4 +29,4 @@ some_features$subject = c(test_subjects$V1,train_subjects$V1)
 names(some_features) 
 
 # Now save the data 
-write.csv(some_features,"data.out/data_tidy.csv")
+write.table(some_features,"data.out/data_tidy.csv",row.name=FALSE)
