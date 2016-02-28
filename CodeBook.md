@@ -1,10 +1,7 @@
 
 This code book describes the variables, the data, and transformations that were performed to clean up the data. For original data description, please, see 'features_info.txt'. This file is included in this repo as a fererence.
 
-For data flow description, please see 'README.md', details of transformations for each script are as follows:
-
-prepare_data.R
---------------
+For data flow description, please see 'README.md', details of transformations are as follows:
 
 1) The script reads original feature data into separate data frames and merges the data. The new data frame is saved into 'all_features'. Only features are read in at this point, not the subject or label information. 
 
@@ -117,21 +114,15 @@ In a similar manner the 'subject' column is attached to 'some_features' data fra
                                                                                                                      
 > write.table(some_features,"data.out/data_tidy.csv",row.name=FALSE)
 
+5) 
 
-summarize_data.R
-----------------
+the scrip uses the dplyr package to create a table, group the data by activity and subject and finally summaraze each group by computing a mean of each variable:
 
-The script first reads the tidy data set:
-
-> data = read.table("data.out/data_tidy.csv", header=TRUE)
-
-It then uses the dplyr package to create a table, group the data by activity and subject and finally summaraze each group by computing a mean of each variable:
-
-> s = tbl_df(data) %>% group_by(activity, subject) %>% summarize_each(funs(mean))
+> s = tbl_df(some_features) %>% group_by(activity, subject) %>% summarize_each(funs(mean))
 
 Finally the data is saved:
 
-> write.table(s,"data.out/data_summary.csv",row.name=FALSE)
+> write.table(s,"tidy.dat",row.name=FALSE)
 
 
 Thank you!
