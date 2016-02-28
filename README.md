@@ -5,7 +5,9 @@ The original zipped archive for this project, 'UCI HAR Dataset.zip', is unzipped
 
 The output is created by the scripts described below is saved in 'data.out' directory.
 
-The project contains two scripts: 'prepare_data.R' and 'summarize_data.R':
+The project contains the following scripts: 'run_analysis.R', 'prepare_data.R' and 'summarize_data.R':
+
+'run_analysis.R' is a top level script that runs 'prepare_data.R' and 'summarize_data.R'.
 
 'prepare_data.R' - to merge, name and tidy the data as per project's instructions. It reads input data, creates the first data set and saves it to 'data.out/data_tidy.csv'
 
