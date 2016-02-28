@@ -8,14 +8,19 @@ prepare_data.R
 1) The script reads original feature data into searate data frames and merges the data. The new data frame is saved into 'all_features'. Only features are read in at this point, not the subject or label information. 
 
 > test_features = read.table("data.in/test/X_test.txt")
+>
 > train_features = read.table("data.in/train/X_train.txt")
+>
 > all_features = rbind(test_features,train_features)
 
 2) Feature names are read in and required columns are selected (the names containing 'mean()' and 'std()'. All features are named. After that the required columns are extracted from the merged data frame. The new data frame is saved into 'some_features'
 
 > feature_names = read.table("data.in/features.txt")
+>
 > some_names = grep(pattern="std\\(\\)|mean\\(\\)",x=feature_names$V2)
+>
 > names(all_features) = feature_names$V2
+>
 > some_features = all_features[,some_names]
 
 The following columns from the original data sets are selected:
@@ -92,14 +97,19 @@ fBodyBodyGyroJerkMag-std()
 Two new columns are added: activity and subject. Activity codes for test and train sets are read and merged to create a vector of activity codes. Activity names are read and used to create a factor vercor that is assigned to 'some_features' data frame as an extra column named activity. 
 
 > test_activities  = read.table("data.in/test/y_test.txt")
+>
 > train_activities = read.table("data.in/train/y_train.txt")
+>
 > actitivy_labels = read.table("data.in/activity_labels.txt")
+>
 > some_features$activity = factor(x=c(test_activities$V1,train_activities$V1),labels=actitivy_labels$V2)
 
 In a similar manner the 'subject' column is attached to 'some_features' data frame.
 
 > test_subjects = read.table("data.in/test/subject_test.txt")
+>
 > train_subjects = read.table("data.in/train/subject_train.txt")
+>
 > some_features$subject = c(test_subjects$V1,train_subjects$V1)
 
 4) Finally the data is saved to 'data.out/data_tidy.csv'

@@ -18,7 +18,7 @@ Please, not in order to run the script the data.in directory should be present. 
 To run type:
 
 > R < prepare_data.R --no-save
-
+>
 > R < summarize_data.R --no-save
 
 the output will be in 'data.out'
