@@ -90,9 +90,7 @@ fBodyBodyGyroMag-std()
 fBodyBodyGyroJerkMag-mean()
 fBodyBodyGyroJerkMag-std()
 
-3) 
-
-Two new columns are added: activity and subject. Activity codes for test and train sets are read and merged to create a vector of activity codes. Activity names are read and used to create a factor vercor that is assigned to 'some_features' data frame as an extra column named activity. 
+3) Two new columns are added: activity and subject. Activity codes for test and train sets are read and merged to create a vector of activity codes. Activity names are read and used to create a factor vercor that is assigned to 'some_features' data frame as an extra column named activity. 
 
 > test_activities  = read.table("data.in/test/y_test.txt")
 >
@@ -114,9 +112,7 @@ In a similar manner the 'subject' column is attached to 'some_features' data fra
                                                                                                                      
 > write.table(some_features,"data.out/data_tidy.csv",row.name=FALSE)
 
-5) 
-
-the scrip uses the dplyr package to create a table, group the data by activity and subject and finally summaraze each group by computing a mean of each variable:
+5) The scrip uses the dplyr package to create a table, group the data by activity and subject and finally summaraze each group by computing a mean of each variable:
 
 > s = tbl_df(some_features) %>% group_by(activity, subject) %>% summarize_each(funs(mean))
 

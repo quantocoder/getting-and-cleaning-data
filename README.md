@@ -2,9 +2,7 @@ Getting and Cleaning Data Course Project
 ----------------------------------------
 
 The original zipped archive for this project, 'UCI HAR Dataset.zip', is unzipped and placed in 'data.in' directory. Original code book 'features_info.txt' is included for reference.
-
-The output is created by the scripts described below is saved in 'data.out' directory.
-
+ 
 The project contains the following scripts: 'run_analysis.R'. It reads input data and creates the tidy data set 'tidy.dat'.
 
 For details of the scrip, please, see CodeBook.md
