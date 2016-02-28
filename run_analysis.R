@@ -1,3 +1,4 @@
+
 library(dplyr)
 
 #1 Merges the training and the test sets to create one data set.
@@ -10,8 +11,7 @@ all_features = rbind(test_features,train_features)
 
 feature_names = read.table("data.in/features.txt")
 some_names = grep(pattern="std\\(\\)|mean\\(\\)",x=feature_names$V2)
-doctored_names = feature_names$V2
-names(all_features) = doctored_names
+names(all_features) = feature_names$V2
 some_features = all_features[,some_names]
 
 #3 Uses descriptive activity names to name the activities in the data set
@@ -26,7 +26,7 @@ train_subjects = read.table("data.in/train/subject_train.txt")
 some_features$subject = c(test_subjects$V1,train_subjects$V1)
 
 #4 Appropriately labels the data set with descriptive variable names. 
-# Please see lines 12,20,24. here are the names:
+# Please see lines 14,22,26. here are the names:
 
 
 #5 creates a second, independent tidy data set with the average of each variable 
